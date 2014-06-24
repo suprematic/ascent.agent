@@ -1,5 +1,5 @@
  (defproject ascent/agent "0.0.1-SNAPSHOT"
-  :description "Debug Agent for ascent.io"
+  :description "Instrumentation Agent for ascent project"
   :url "https://github.com/suprematic/ascent.agent"
   
   :license { :name "Eclipse"
