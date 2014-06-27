@@ -8,7 +8,7 @@
   :source-paths  ["src/cljs"]
   
   :dependencies [[org.clojure/clojure "1.5.1"]
-                [org.clojure/clojurescript "0.0-2173"]
+                [org.clojure/clojurescript "0.0-2234"]
                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
                 [khroma "0.0.1"]
                 [prismatic/dommy "0.1.2"]
