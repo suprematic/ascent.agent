@@ -1,4 +1,4 @@
- (defproject ascent.agent "0.0.1-SNAPSHOT"
+ (defproject ascent/agent "0.0.1-SNAPSHOT"
   :description "Debug Agent for ascent.io"
   :url "https://github.com/suprematic/ascent.agent"
   
