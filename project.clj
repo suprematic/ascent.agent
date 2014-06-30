@@ -15,12 +15,4 @@
                 [jarohen/chord "0.3.1"]]
   
   :plugins [[lein-cljsbuild "1.0.2"]]
-  
-  :cljsbuild {
-    :builds[{:id "dev"
-    :source-paths ["src/cljs"]
-    :compiler {:output-dir "target/js/compiled"
-      :output-to "target/js/compiled/ascent-agent.js"
-      :source-map "target/js/compiled/ascent-agent.js.map"
-      :optimizations :none
-      :pretty-print true}}]})
+)
