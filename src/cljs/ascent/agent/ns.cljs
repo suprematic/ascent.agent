@@ -1,16 +1,17 @@
 (ns ascent.agent.ns
   (:require
     [ascent.log :as log]
-    [dommy.core :as dommy])
+    [dommy.core :as dommy :include-macros true])
   
-  (:use-macros
-    [dommy.macros :only [node sel1]]))
+  )
 
 (defn load-script [src]
   (let [id (name (gensym))]
     (dommy/append! js/document.head
-      (node [:script {:src src :async false :id id}]))
-    (dommy/remove! (sel1 (str "#" id)))))
+      (-> (dommy/create-element :script)
+        (dommy/set-attr! :src src :async false :id id)))
+
+    (dommy/remove! (dommy/sel1 (str "#" id)))))
 
 (defn clear-ns [ns]
   (when (.getObjectByName js/goog ns
@@ -18,6 +19,7 @@
           name   (last parts)
           parent (butlast parts)]
       
+      ;FIXME don't delete sub-namespaces (check against goog ns dictionary)
       (.globalEval js/goog
         (if parent 
           (str "delete goog.getObjectByName('" (clojure.string/join "." parent) "')['" name "'];")

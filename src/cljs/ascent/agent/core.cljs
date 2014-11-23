@@ -5,11 +5,10 @@
    
     [cljs.core.async :as async]
     [chord.client :as chord]
-    [dommy.core :as dommy])
+    [dommy.core :as dommy :include-macros true])
 
   
   (:require-macros 
-    [dommy.macros :refer [node sel1]]
     [cljs.core.async.macros :refer [go alt! go-loop]]))
 
 (defn- response-text [request]
@@ -70,7 +69,7 @@
     (async/sub in-pub in-type ch) ch))
 
 (defn get-server-url []
-  (if-let [element (sel1 "meta[name=AscentServerURL]")]
+  (if-let [element (dommy/sel1 "meta[name=AscentServerURL]")]
     (dommy/attr element :content)))
 
 (defn connect [{:keys [url]}]
